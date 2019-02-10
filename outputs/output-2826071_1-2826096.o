@@ -1,0 +1,26 @@
+/apps/machine-learning/tensorflow/1.11/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+EEE
+======================================================================
+ERROR: 2826096 (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+AttributeError: module '__main__' has no attribute '2826096'
+
+======================================================================
+ERROR: 2826071 (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+AttributeError: module '__main__' has no attribute '2826071'
+
+======================================================================
+ERROR: 1 (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+AttributeError: module '__main__' has no attribute '1'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (errors=3)
+2826096
+2826071
+1
+run tesnroflow test case
