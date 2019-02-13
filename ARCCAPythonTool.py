@@ -2,6 +2,7 @@ import base64
 import paramiko
 
 import json
+import os
 #fyp_scw1427
 #dais_scw1077
 
@@ -32,12 +33,13 @@ import json
 #fetch files from remote location
 
 
-class ArrcaTool(object):
+class ArccaTool(object):
     def __init__(self, host, host_key=""):
         self.credentials = self.LoadCredentials()
         self.host = host
 
         self.client = paramiko.SSHClient()
+        self.client_open = False
 
         self.host_key = host_key
         self.decoded_key = None
@@ -66,13 +68,28 @@ class ArrcaTool(object):
             # self.client.set_missing_host_key_policy(paramiko.WarningPolicy())
 
 
-    def LoadCredentials(self):
+    def LoadCredentials(self,credentials_path="credentials.json"):
+        if(not os.path.exists(credentials_path)):
+            self.CreateCredentialsTempalte(credentials_path)
+            print("Credentials file did not exist. Template created at: "+credentials_path)
+            credentials_file_exists = False
+            assert credentials_file_exists
+        
         credentials_json = None
         with open("credentials.json","r") as f:
             credentials_json = json.load(f)
         
         return credentials_json
     
+
+    def CreateCredentialsTempalte(self,credentials_path="credentials.json"):
+        template = {
+            "username":"USERNAME",
+            "pw":"PASSWORD"
+            }
+        
+        with open(credentials_path, "w") as f:
+            f.write(json.dumps(template,indent=4))
 
     def Connect(self):
         self.client.connect(self.host, username=self.credentials["username"], password=self.credentials["pw"])
@@ -106,7 +123,9 @@ class ArrcaTool(object):
         return stdin, stdout, stderr, job_id
 
     def __del__(self):
-        self.CloseConnection()
+        if(not self.client is None):
+            if(not self.client.closed):
+                self.CloseConnection()
 
 
 if __name__ == "__main__":    
@@ -115,7 +134,7 @@ if __name__ == "__main__":
 
    
 
-    arcca_tool = ArrcaTool(host,host_key)
+    arcca_tool = ArccaTool(host,host_key)
 
     arcca_tool.Connect()
 
