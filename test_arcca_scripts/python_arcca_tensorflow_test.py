@@ -1,13 +1,7 @@
 import sys
 import tensorflow as tf
 
-SLURM_JOB_ID = sys.argv[1]
-SLURM_ARRAY_JOB_ID = sys.argv[2]
-SLURM_ARRAY_TASK_ID = sys.argv[3]
 
-print(SLURM_JOB_ID)
-print(SLURM_ARRAY_JOB_ID)
-print(SLURM_ARRAY_TASK_ID)
 
 class SquareTest(tf.test.TestCase):
     def testSquare(self):
@@ -17,5 +11,12 @@ class SquareTest(tf.test.TestCase):
 
 
 if __name__ == '__main__':
+    SLURM_JOB_ID = sys.argv[1]
+    # SLURM_ARRAY_JOB_ID = sys.argv[2]
+    # SLURM_ARRAY_TASK_ID = sys.argv[3]
+
+    # print(SLURM_JOB_ID)
+    # print(SLURM_ARRAY_JOB_ID)
+    # print(SLURM_ARRAY_TASK_ID)
     print("run tesnroflow test case")
-    tf.test.main()
+    # tf.test.main()
