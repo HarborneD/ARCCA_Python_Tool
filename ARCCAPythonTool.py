@@ -53,7 +53,8 @@ class ArccaTool(object):
         self.COMMANDS = {
             "get_job_queue":"squeue"
             ,"batch_job":"sbatch"
-            ,"cancel job":"scancel"
+            ,"cancel_job":"scancel"
+            ,"change_directory":"cd"
         }
 
         self.JOB_STATUS_CODES = None
@@ -111,9 +112,10 @@ class ArccaTool(object):
     def DangerousAutoAddHost(self):
         self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-    def Connect(self):
+    def Connect(self, tpn_override= True):
         self.client.connect(self.host, username=self.credentials["username"], password=self.credentials["pw"])
-
+        if(tpn_override):
+            self.TpnOverride()
 
     def CloseConnection(self):
         print("___")
@@ -121,7 +123,6 @@ class ArccaTool(object):
         print("___")
         print("")
         self.client.close()
-
 
     ###COMMANDS
     def SendCommand(self,command):
@@ -237,20 +238,39 @@ class ArccaTool(object):
 
 
     ### CREATE JOB FUNCTIONS
-    def StartBatchJob(self,account,script_name):
+    def TpnOverride(self):
+        command = "export SCW_TPN_OVERRIDE=1"
+        stdin, stdout, stderr = self.SendCommand(command) 
+        
+
+    def StartBatchJob(self,account,run_from_path,script_name):
+        #stdin, stdout, stderr, job_id = arcca_tool.StartBatchJob("fyp_scw1427","/home/c.c0919382/test_scripts","test_tensorflow.sh")
         #TODO: remove these
         #fyp_scw1427
         #dais_scw1077
-        stdin, stdout, stderr = self.SendCommand(self.COMMANDS["batch_job"]+" --account="+account+" "+script_name) 
+        
+        cd_command = self.COMMANDS["change_directory"]+" "+run_from_path+" ;"
+        post_job_command = self.COMMANDS["batch_job"]+" --account="+account+" "+script_name
+        print("post_job_command")
+        stdin, stdout, stderr = self.SendCommand(cd_command +" "+post_job_command) 
+        was_error = False
+        print("post Error:")
+        for line in stderr:
+            was_error = True
+            print(line)
+        
+        if(was_error):
+            raise RuntimeError('Job submission failed.')
         
         job_id = None
         for line in stdout:
+            print("line")
             if(str(line)[:20] == "Submitted batch job "):
                 r'\d+'
                 job_id = line[20:]
                 break
         
-
+        self.user_jobs_list.append(job_id)
         
         return stdin, stdout, stderr, job_id
 
