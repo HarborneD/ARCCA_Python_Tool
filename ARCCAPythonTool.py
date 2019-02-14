@@ -10,8 +10,6 @@ import thread
 import time
 
 
-#fyp_scw1427
-#dais_scw1077
 
 ### Connection
 #[x] load credentials
@@ -110,6 +108,9 @@ class ArccaTool(object):
 
 
     ### CONNECTION FUNCTIONS
+    def DangerousAutoAddHost(self):
+        self.client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
     def Connect(self):
         self.client.connect(self.host, username=self.credentials["username"], password=self.credentials["pw"])
 
@@ -140,7 +141,7 @@ class ArccaTool(object):
             
             queue_command = queue_command[:-1]
         
-        elif(len(job_names > 0)):
+        elif(len(job_names) > 0):
             queue_command += "--name "
             
             for name in job_names:
@@ -237,6 +238,9 @@ class ArccaTool(object):
 
     ### CREATE JOB FUNCTIONS
     def StartBatchJob(self,account,script_name):
+        #TODO: remove these
+        #fyp_scw1427
+        #dais_scw1077
         stdin, stdout, stderr = self.SendCommand(self.COMMANDS["batch_job"]+" --account="+account+" "+script_name) 
         
         job_id = None
@@ -252,7 +256,7 @@ class ArccaTool(object):
 
     def __del__(self):
         if(not self.client is None):
-            if(not self.client.get_transport().is_active()):
+            if(self.client.get_transport().is_active()):
                 self.CloseConnection()
 
 
