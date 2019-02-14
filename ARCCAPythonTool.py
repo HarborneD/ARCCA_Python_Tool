@@ -3,34 +3,42 @@ import paramiko
 
 import json
 import os
+
+import re
+
+import thread
+import time
+
+
 #fyp_scw1427
 #dais_scw1077
 
-#login
+### Connection
+#[x] load credentials
+#[x] create credentials template if file missing
+#[x] login
 
 
 ###jobs
-#submit single job
-
-#submit batch of jobs
-
-#check job status
-
-#restart failed jobs
-
-#check expected start time for jobs
+#[x] submit job
+#[ ] submit array of jobs
+#[x] check job status 
+#[x] poll job status(blocking)
+#[ ] restart failed jobs
+#[ ] check expected start time for jobs
+#[x] cancel job
 
 
 
 ##remote storage (scratch/home)
-#get quota of home
+#[ ] get quota of home
     #myquota
 
-#send files to remote location
+#[ ] send files to remote location
 
-#directory of remote location
+#[ ] directory of remote location
 
-#fetch files from remote location
+#[ ] fetch files from remote location
 
 
 class ArccaTool(object):
@@ -47,7 +55,15 @@ class ArccaTool(object):
         self.COMMANDS = {
             "get_job_queue":"squeue"
             ,"batch_job":"sbatch"
+            ,"cancel job":"scancel"
         }
+
+        self.JOB_STATUS_CODES = None
+
+        with open("status_codes.json", "r") as f:
+             self.JOB_STATUS_CODES = json.loads(f.read())
+        
+        self.user_jobs_list = []
 
         if(self.host_key != ""):
             print("___")
@@ -68,6 +84,7 @@ class ArccaTool(object):
             # self.client.set_missing_host_key_policy(paramiko.WarningPolicy())
 
 
+    ###CREDENTIAL FUNCTIONS
     def LoadCredentials(self,credentials_path="credentials.json"):
         if(not os.path.exists(credentials_path)):
             self.CreateCredentialsTempalte(credentials_path)
@@ -91,6 +108,8 @@ class ArccaTool(object):
         with open(credentials_path, "w") as f:
             f.write(json.dumps(template,indent=4))
 
+
+    ### CONNECTION FUNCTIONS
     def Connect(self):
         self.client.connect(self.host, username=self.credentials["username"], password=self.credentials["pw"])
 
@@ -103,28 +122,137 @@ class ArccaTool(object):
         self.client.close()
 
 
+    ###COMMANDS
     def SendCommand(self,command):
         stdin, stdout, stderr = self.client.exec_command(command)
         return stdin, stdout, stderr
 
 
-    def CheckJobs(self):
-        return self.SendCommand(self.COMMANDS["get_job_queue"])
+    #JOB POLLING FUNCTIONS
+    def CheckJobs(self, job_ids=[], job_names=[], user_ids=[]):
+        queue_command = self.COMMANDS["get_job_queue"]
+
+        if(len(job_ids) > 0):
+            queue_command += " --jobs "
+
+            for id in job_ids:
+                queue_command += id+","
+            
+            queue_command = queue_command[:-1]
+        
+        elif(len(job_names > 0)):
+            queue_command += "--name "
+            
+            for name in job_names:
+                queue_command += name+","
+                
+            queue_command = queue_command[:-1] 
+        
+        elif(len(user_ids) > 0):
+            queue_command += " --users "
+
+            for id in user_ids:
+                queue_command += id+","
+            
+            queue_command = queue_command[:-1]                      
+
+        stdin, stdout, stderr = self.SendCommand(queue_command)
+        job_queue = []
+        for line in stdout:
+            job_queue.append(line.strip('\n'))
+
+        return job_queue
+
     
+    def CheckOwnJobs(self):
+        return self.CheckJobs(user_ids=[self.credentials["username"]])
+
+
+    def ProcessJobLine(self,job_line):
+        result = re.findall(r'([\w\[\]\-\:\.\(\)]+)', job_line)
+        
+        job = None
+        if(len(result) == 8):
+            job = {
+                "job_id":result[0]
+                ,"partition":result[1]
+                ,"name":result[2]
+                ,"user":result[3]
+                ,"st":result[4]
+                ,"time":result[5]
+                ,"nodes":result[6]
+                ,"nodelist":result[7]
+                }
+        return job
+
+
+    def GetJobListFromStringList(self,job_string_list):
+        job_list = []
+        failed_strings = []
+        for line in job_string_list[1:]:
+            job = self.ProcessJobLine(line)
+            if(job is None):
+                failed_strings.append(line)
+            else:
+                job_list.append(job)
+        
+        return job_list, failed_strings
+    
+
+    def PollJobs(self):
+        print("Press Enter to Stop Polling Jobs")
+        def input_thread(L):
+            raw_input()
+            L.append(None)
+        L = []
+        thread.start_new_thread(input_thread, (L,))
+        while 1:
+            time.sleep(2)
+            if L: break
+            jobs = self.CheckOwnJobs()
+            for job in jobs:
+                print(job)
+    
+    def CheckStartTime(self,job_id):
+        queue_command = self.COMMANDS["get_job_queue"] +" -j "+job_id + "--start"
+
+        stdin, stdout, stderr = self.SendCommand(queue_command)
+        job_queue = []
+        for line in stdout:
+            job_queue.append(line.strip('\n'))
+
+        return job_queue
+
+    ###CANCEL JOB FUNCTIONS
+    def CancelJob(self,job_id):
+        command = self.COMMANDS["cancel_job"]+ " " + str(job_id)
+
+        _, stdout, _ = self.SendCommand(command)
+        output = ""
+        for line in stdout:
+            output += line
+        
+        return output
+
+
+    ### CREATE JOB FUNCTIONS
     def StartBatchJob(self,account,script_name):
         stdin, stdout, stderr = self.SendCommand(self.COMMANDS["batch_job"]+" --account="+account+" "+script_name) 
         
         job_id = None
         for line in stdout:
             if(str(line)[:20] == "Submitted batch job "):
+                r'\d+'
                 job_id = line[20:]
                 break
+        
+
         
         return stdin, stdout, stderr, job_id
 
     def __del__(self):
         if(not self.client is None):
-            if(not self.client.closed):
+            if(not self.client.get_transport().is_active()):
                 self.CloseConnection()
 
 
@@ -153,12 +281,12 @@ if __name__ == "__main__":
     
     
     if(list_jobs):
-        arcca_tool.CheckJobs()
+        queue = arcca_tool.CheckJobs()
 
         print("Job Queue:")
         print("")
-        for line in stdout:
-            print('... ' + line.strip('\n'))
+        for item in queue:
+            print(item)
     
 
     if(test_array_job):

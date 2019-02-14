@@ -1,0 +1,1002 @@
+(lp0
+V             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+p1
+aV     2832879_[0-4]       gpu tensorfl c.c09193 PD       0:00      2 (Priority)
+p2
+aV     2832876_[0-4]       gpu tensorfl c.c09193 PD       0:00      2 (Resources)
+p3
+aV           2831018   highmem chemshel c.c11059 PD       0:00      7 (Resources)
+p4
+aV           2827895   highmem wat_500_ c.sma9mg PD       0:00      4 (Priority)
+p5
+aV           2827893   highmem wat_505_ c.sma9mg PD       0:00      4 (Priority)
+p6
+aV           2829049       htc Co_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p7
+aV           2829054       htc Co_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p8
+aV           2829062       htc Co_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p9
+aV           2829063       htc Co_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p10
+aV           2829068       htc Co_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p11
+aV           2829075       htc Co_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p12
+aV           2829079       htc Co_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p13
+aV           2829086       htc Co_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p14
+aV           2829090       htc Co_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p15
+aV           2829101       htc Cu_CO_at c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p16
+aV           2829105       htc Cu_CO_at c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p17
+aV           2829107       htc Cu_CO_at c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p18
+aV           2829116       htc Cu_CO_at c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p19
+aV           2829132       htc Cu_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p20
+aV           2828477   highmem Meth_BEA c.c17399 PD       0:00      1 (Priority)
+p21
+aV           2829136       htc Cu_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p22
+aV           2829138       htc Cu_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p23
+aV           2829141       htc Cu_CO_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p24
+aV           2829143       htc Cu_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p25
+aV           2829144       htc Cu_CO_ho c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p26
+aV           2828266       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p27
+aV           2828264       htc Gaussian c.c16756 PD       0:00      1 (Resources)
+p28
+aV           2828452       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p29
+aV           2828451       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p30
+aV           2828475       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p31
+aV           2828460       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p32
+aV           2828474       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p33
+aV           2828459       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p34
+aV           2828501       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p35
+aV           2828496       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p36
+aV           2830195       htc fx_50_20 c.c18949 PD       0:00      1 (Priority)
+p37
+aV           2830194       htc fx_40_20 c.c18949 PD       0:00      1 (Priority)
+p38
+aV           2830193       htc fx_30_20 c.c18949 PD       0:00      1 (Priority)
+p39
+aV           2830248       htc fx_20_40 c.c18949 PD       0:00      1 (Priority)
+p40
+aV           2830247       htc fx_10_40 c.c18949 PD       0:00      1 (Priority)
+p41
+aV           2830202       htc fx_40_30 c.c18949 PD       0:00      1 (Priority)
+p42
+aV           2830203       htc fx_50_30 c.c18949 PD       0:00      1 (Priority)
+p43
+aV           2830201       htc fx_30_30 c.c18949 PD       0:00      1 (Priority)
+p44
+aV           2830199       htc fx_10_30 c.c18949 PD       0:00      1 (Priority)
+p45
+aV           2830200       htc fx_20_30 c.c18949 PD       0:00      1 (Priority)
+p46
+aV           2830296       htc fx_50_40 c.c18949 PD       0:00      1 (Priority)
+p47
+aV           2830295       htc fx_40_40 c.c18949 PD       0:00      1 (Priority)
+p48
+aV           2830294       htc fx_30_40 c.c18949 PD       0:00      1 (Priority)
+p49
+aV           2827967       htc   Opt.sh b.chu852 PD       0:00      1 (Priority)
+p50
+aV           2827968       htc    Eq.sh b.chu852 PD       0:00      1 (Priority)
+p51
+aV           2828087       htc   sym.sh b.chu852 PD       0:00      1 (Priority)
+p52
+aV           2828166       htc FullLowL b.chu852 PD       0:00      1 (Priority)
+p53
+aV           2828241       htc   sym.sh b.chu852 PD       0:00      1 (Priority)
+p54
+aV           2828955       htc FS_SS_40 c.c11039 PD       0:00      1 (Priority)
+p55
+aV           2828954       htc FS_SS_40 c.c11039 PD       0:00      1 (Priority)
+p56
+aV           2828751       htc submissi c.c14075 PD       0:00      1 (Priority)
+p57
+aV           2828752       htc submissi c.c14075 PD       0:00      1 (Priority)
+p58
+aV           2828747       htc submissi c.c14075 PD       0:00      1 (Priority)
+p59
+aV           2828746       htc submissi c.c14075 PD       0:00      1 (Priority)
+p60
+aV           2830051       htc CO2ab-na c.c18848 PD       0:00      1 (Priority)
+p61
+aV           2830683       htc CeO2111_ c.sacam5 PD       0:00      1 (Priority)
+p62
+aV           2830686       htc CeO2111_ c.sacam5 PD       0:00      1 (Priority)
+p63
+aV           2830664       htc CeO2bulk c.sacam5 PD       0:00      1 (Priority)
+p64
+aV           2830702       htc CeO2100C c.sacam5 PD       0:00      1 (Priority)
+p65
+aV           2827395       htc   ncdist c.c13222 PD       0:00      1 (Priority)
+p66
+aV           2829891       htc Cu_H2_br c.c17617 PD       0:00      2 (QOSMaxCpuPerUserLimit)
+p67
+aV           2830839       htc CO2bnano c.c18848 PD       0:00      1 (Priority)
+p68
+aV           2829619   highmem eta_t_00 c.sma9mg PD       0:00      4 (Priority)
+p69
+aV           2828269       htc    EAGER c.c16059 PD       0:00      1 (Priority)
+p70
+aV           2831517       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p71
+aV           2831516       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p72
+aV           2831515       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p73
+aV           2831521       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p74
+aV           2831518       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p75
+aV           2831519       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p76
+aV           2831520       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p77
+aV           2831522       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p78
+aV           2831523       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p79
+aV           2831525       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p80
+aV           2831526       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p81
+aV           2831527       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p82
+aV           2831528       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p83
+aV           2831530       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p84
+aV           2831531       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p85
+aV           2831532       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p86
+aV           2831534       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p87
+aV           2831535       htc     otis b.dvh18b PD       0:00      1 (Priority)
+p88
+aV           2828652       htc    EAGER c.c16059 PD       0:00      1 (Priority)
+p89
+aV           2830474       htc Cu_H2_at c.c17617 PD       0:00      2 (Priority)
+p90
+aV           2831537       htc submissi c.c17567 PD       0:00      1 (Priority)
+p91
+aV           2831695       htc    EAGER c.c18844 PD       0:00      1 (Priority)
+p92
+aV           2831538       htc submissi c.c17567 PD       0:00      1 (Priority)
+p93
+aV           2831539       htc submissi c.c17567 PD       0:00      1 (Priority)
+p94
+aV           2831540       htc submissi c.c17567 PD       0:00      1 (Priority)
+p95
+aV           2831541       htc submissi c.c17567 PD       0:00      1 (Priority)
+p96
+aV           2831542       htc submissi c.c17567 PD       0:00      1 (Priority)
+p97
+aV           2831543       htc submissi c.c17567 PD       0:00      1 (Priority)
+p98
+aV           2831544       htc submissi c.c17567 PD       0:00      1 (Priority)
+p99
+aV           2831545       htc submissi c.c17567 PD       0:00      1 (Priority)
+p100
+aV           2831546       htc submissi c.c17567 PD       0:00      1 (Priority)
+p101
+aV           2831547       htc submissi c.c17567 PD       0:00      1 (Priority)
+p102
+aV           2831548       htc submissi c.c17567 PD       0:00      1 (Priority)
+p103
+aV           2831549       htc submissi c.c17567 PD       0:00      1 (Priority)
+p104
+aV           2831550       htc submissi c.c17567 PD       0:00      1 (Priority)
+p105
+aV           2831551       htc submissi c.c17567 PD       0:00      1 (Priority)
+p106
+aV           2828139       htc        C c.c18111 PD       0:00      1 (Priority)
+p107
+aV           2828140       htc        C c.c18111 PD       0:00      1 (Priority)
+p108
+aV           2828141       htc        C c.c18111 PD       0:00      1 (Priority)
+p109
+aV           2828142       htc        C c.c18111 PD       0:00      1 (Priority)
+p110
+aV           2828143       htc        C c.c18111 PD       0:00      1 (Priority)
+p111
+aV           2828144       htc        C c.c18111 PD       0:00      1 (Priority)
+p112
+aV           2828145       htc        C c.c18111 PD       0:00      1 (Priority)
+p113
+aV           2828146       htc        C c.c18111 PD       0:00      1 (Priority)
+p114
+aV           2828147       htc        C c.c18111 PD       0:00      1 (Priority)
+p115
+aV           2828148       htc        C c.c18111 PD       0:00      1 (Priority)
+p116
+aV           2828150       htc        C c.c18111 PD       0:00      1 (Priority)
+p117
+aV           2828151       htc        C c.c18111 PD       0:00      1 (Priority)
+p118
+aV           2828152       htc        C c.c18111 PD       0:00      1 (Priority)
+p119
+aV           2828153       htc        C c.c18111 PD       0:00      1 (Priority)
+p120
+aV           2828154       htc        C c.c18111 PD       0:00      1 (Priority)
+p121
+aV           2828155       htc        C c.c18111 PD       0:00      1 (Priority)
+p122
+aV           2828156       htc        C c.c18111 PD       0:00      1 (Priority)
+p123
+aV           2828157       htc        C c.c18111 PD       0:00      1 (Priority)
+p124
+aV           2828158       htc        C c.c18111 PD       0:00      1 (Priority)
+p125
+aV           2828159       htc        C c.c18111 PD       0:00      1 (Priority)
+p126
+aV           2828160       htc        C c.c18111 PD       0:00      1 (Priority)
+p127
+aV           2828161       htc        C c.c18111 PD       0:00      1 (Priority)
+p128
+aV           2828162       htc        C c.c18111 PD       0:00      1 (Priority)
+p129
+aV           2828163       htc        C c.c18111 PD       0:00      1 (Priority)
+p130
+aV           2828164       htc        C c.c18111 PD       0:00      1 (Priority)
+p131
+aV           2828165       htc        C c.c18111 PD       0:00      1 (Priority)
+p132
+aV           2832440       htc Ni111_Ph c.c18580 PD       0:00      1 (Priority)
+p133
+aV           2832530       htc Ni111_PH c.c18580 PD       0:00      1 (Priority)
+p134
+aV           2829845   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p135
+aV           2829844   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p136
+aV           2829843   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p137
+aV           2829841   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p138
+aV           2829842   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p139
+aV           2829840   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p140
+aV           2829839   compute     VASP b.nssc02 PD       0:00      2 (Resources)
+p141
+aV           2831990   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p142
+aV           2831985   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p143
+aV           2830069       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p144
+aV           2830070       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p145
+aV           2830134       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p146
+aV           2830135       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p147
+aV           2830137       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p148
+aV           2830138       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p149
+aV           2832738   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p150
+aV           2832739   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p151
+aV           2832740   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p152
+aV           2832737   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p153
+aV           2832735   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p154
+aV           2832736   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p155
+aV           2832730   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p156
+aV           2832731   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p157
+aV           2832732   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p158
+aV           2832733   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p159
+aV           2832734   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p160
+aV           2832729   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p161
+aV           2832728   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p162
+aV           2832727   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p163
+aV           2832726   compute OH_O2B_O c.c17595 PD       0:00      2 (Priority)
+p164
+aV2831586_[765-1000]       htc news_phi c.sbsdm5 PD       0:00      1 (Priority)
+p165
+aV           2829508   compute     deep  c.scezx PD       0:00      7 (Priority)
+p166
+aV           2829509   compute solitary  c.scezx PD       0:00      7 (Priority)
+p167
+aV           2832341   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p168
+aV           2832342   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p169
+aV           2832343   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p170
+aV           2832344   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p171
+aV           2832345   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p172
+aV           2830205       htc submissi c.c14075 PD       0:00      1 (Priority)
+p173
+aV           2830246       htc submissi c.c14075 PD       0:00      1 (Priority)
+p174
+aV           2830309   compute Pd_111_v c.c18949 PD       0:00      2 (Priority)
+p175
+aV           2830314   compute Pd_111_v c.c18949 PD       0:00      2 (Priority)
+p176
+aV           2830315   compute Pd_111_v c.c18949 PD       0:00      2 (Priority)
+p177
+aV           2830317   compute Pd_111_v c.c18949 PD       0:00      2 (Priority)
+p178
+aV           2827869   compute Cu-100-D c.sacmh9 PD       0:00      2 (Priority)
+p179
+aV           2827871   compute Cu-100-D c.sacmh9 PD       0:00      2 (Priority)
+p180
+aV           2827874   compute Cu-110-D c.sacmh9 PD       0:00      2 (Priority)
+p181
+aV           2827885   compute Cu-100-D c.sacmh9 PD       0:00      2 (Priority)
+p182
+aV           2832491   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p183
+aV           2832492   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p184
+aV           2832505   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p185
+aV           2832507   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p186
+aV           2832520   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p187
+aV           2832524   compute chemshel c.c11059 PD       0:00      5 (Priority)
+p188
+aV           2830594   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p189
+aV           2830595   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p190
+aV           2830597   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p191
+aV           2830745   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p192
+aV           2830746   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p193
+aV           2830751   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p194
+aV           2830752   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p195
+aV           2830755   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p196
+aV           2830756   compute Pd_111_p c.c18949 PD       0:00      2 (Priority)
+p197
+aV           2828608   compute Cu-110-D c.sacmh9 PD       0:00      2 (Priority)
+p198
+aV           2829949   highmem oleic_ac c.c17515 PD       0:00      6 (Priority)
+p199
+aV           2828610   compute Cu-100-D c.sacmh9 PD       0:00      2 (Priority)
+p200
+aV           2828785   compute  T00zd1d c.c16637 PD       0:00      2 (Priority)
+p201
+aV           2828821   compute T00zh1dO c.c16637 PD       0:00      2 (Priority)
+p202
+aV           2828824   compute T00zh1dO c.c16637 PD       0:00      2 (Priority)
+p203
+aV           2831764       htc H2nanoa- c.c18848 PD       0:00      1 (Priority)
+p204
+aV           2828857   compute  T01zh1d c.c16637 PD       0:00      2 (Priority)
+p205
+aV           2830936       htc submissi c.c14075 PD       0:00      1 (Priority)
+p206
+aV           2830938       htc submissi c.c14075 PD       0:00      1 (Priority)
+p207
+aV           2830939       htc submissi c.c14075 PD       0:00      1 (Priority)
+p208
+aV           2830940       htc submissi c.c14075 PD       0:00      1 (Priority)
+p209
+aV           2830945       htc submissi c.c14075 PD       0:00      1 (Priority)
+p210
+aV           2830946       htc submissi c.c14075 PD       0:00      1 (Priority)
+p211
+aV           2830947       htc submissi c.c14075 PD       0:00      1 (Priority)
+p212
+aV           2830949       htc submissi c.c14075 PD       0:00      1 (Priority)
+p213
+aV           2830951       htc submissi c.c14075 PD       0:00      1 (Priority)
+p214
+aV           2830952       htc submissi c.c14075 PD       0:00      1 (Priority)
+p215
+aV           2830953       htc submissi c.c14075 PD       0:00      1 (Priority)
+p216
+aV           2830954       htc submissi c.c14075 PD       0:00      1 (Priority)
+p217
+aV           2828825   compute Cu-100-D c.sacmh9 PD       0:00      2 (Priority)
+p218
+aV           2830892       htc   con.sh b.chu852 PD       0:00      1 (Priority)
+p219
+aV           2832266   compute   NiZn-N c.c13263 PD       0:00      2 (Priority)
+p220
+aV           2832510   compute     ROMS b.ossa19 PD       0:00      2 (Priority)
+p221
+aV           2832295   compute   NiZn-N c.c13263 PD       0:00      2 (Priority)
+p222
+aV           2829828   compute Pt011_SO c.c17597 PD       0:00      2 (Priority)
+p223
+aV           2831326   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p224
+aV           2832313   compute   NiZn-N c.c13263 PD       0:00      2 (Priority)
+p225
+aV           2832335   compute   NiZn-N c.c13263 PD       0:00      2 (Priority)
+p226
+aV           2831500       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p227
+aV           2831501       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p228
+aV           2830183   compute solitary  c.scezx PD       0:00      7 (Priority)
+p229
+aV           2832550   compute     NiZn c.c13263 PD       0:00      2 (Priority)
+p230
+aV           2832555   compute     NiZn c.c13263 PD       0:00      2 (Priority)
+p231
+aV           2829913   compute PdO_011_ c.c15292 PD       0:00      2 (Priority)
+p232
+aV           2829918   compute PdO_011_ c.c15292 PD       0:00      2 (Priority)
+p233
+aV           2832444   compute graph_st c.c15750 PD       0:00      2 (Priority)
+p234
+aV           2831906   highmem Meth_MFI c.c17399 PD       0:00      1 (Priority)
+p235
+aV           2831940   highmem Meth_MFI c.c17399 PD       0:00      1 (Priority)
+p236
+aV           2831566   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p237
+aV           2831567   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p238
+aV           2831568   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p239
+aV           2831570   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p240
+aV           2831571   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p241
+aV           2831572   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p242
+aV           2831573   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p243
+aV           2831574   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p244
+aV           2831575   compute     VASP b.nssc02 PD       0:00      2 (Priority)
+p245
+aV           2831948       htc Meth_BEA c.c17399 PD       0:00      1 (Priority)
+p246
+aV           2831952   highmem Meth_BEA c.c17399 PD       0:00      1 (Priority)
+p247
+aV           2829897   compute  Pd_TS1b  c.sacje PD       0:00      3 (Priority)
+p248
+aV           2831823   compute   qcalcs x.a.c.01 PD       0:00      6 (Priority)
+p249
+aV           2832353   highmem Meth_MFI c.c17399 PD       0:00      1 (Priority)
+p250
+aV           2832496       htc thio_opt c.c15750 PD       0:00      1 (Priority)
+p251
+aV           2831737       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p252
+aV           2831783       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p253
+aV           2831784       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p254
+aV           2831785       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p255
+aV           2831787       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p256
+aV           2831788       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p257
+aV           2831790       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p258
+aV           2831791       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p259
+aV           2831792       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p260
+aV           2831793       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p261
+aV           2831794       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p262
+aV           2831795       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p263
+aV           2831796       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p264
+aV           2831800       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p265
+aV           2831801       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p266
+aV           2831802       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p267
+aV           2831803       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p268
+aV           2831804       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p269
+aV           2831805       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p270
+aV           2831806       htc     VASP b.nssc02 PD       0:00      1 (Priority)
+p271
+aV           2830547       htc    Au_1C c.sacar6 PD       0:00      1 (Priority)
+p272
+aV           2830548       htc    Au_1C c.sacar6 PD       0:00      1 (Priority)
+p273
+aV           2830549       htc    Au_2C c.sacar6 PD       0:00      1 (Priority)
+p274
+aV           2830550       htc    Au_2C c.sacar6 PD       0:00      1 (Priority)
+p275
+aV           2830551       htc    Au_4C c.sacar6 PD       0:00      1 (Priority)
+p276
+aV           2830552       htc    Au_5C c.sacar6 PD       0:00      1 (Priority)
+p277
+aV           2831004   compute      Au1 c.sacar6 PD       0:00      2 (Priority)
+p278
+aV           2831006   compute     Au1i c.sacar6 PD       0:00      2 (Priority)
+p279
+aV           2830828       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p280
+aV           2830829       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p281
+aV           2830830       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p282
+aV           2830831       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p283
+aV           2830832       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p284
+aV           2830836       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p285
+aV           2830837       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p286
+aV           2830838       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p287
+aV           2830840       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p288
+aV           2830841       htc ncandpos c.c13222 PD       0:00      1 (Priority)
+p289
+aV           2832474       htc submissi c.c14075 PD       0:00      1 (Priority)
+p290
+aV           2832380       htc   num.sh b.chu852 PD       0:00      1 (Priority)
+p291
+aV           2832389       htc    Eq.sh b.chu852 PD       0:00      1 (Priority)
+p292
+aV           2832661       htc Gaussian c.c16756 PD       0:00      1 (Priority)
+p293
+aV           2832439       htc   Opt.sh b.chu852 PD       0:00      1 (Priority)
+p294
+aV           2832451       htc   Opt.sh b.chu852 PD       0:00      1 (Priority)
+p295
+aV           2832466       htc   Opt.sh b.chu852 PD       0:00      1 (Priority)
+p296
+aV           2832508       htc   opt.sh b.chu852 PD       0:00      1 (Priority)
+p297
+aV           2832509       htc   Opt.sh b.chu852 PD       0:00      1 (Priority)
+p298
+aV           2832630   compute znp2_bet c.c16666 PD       0:00      3 (Priority)
+p299
+aV           2831569   compute Pt011_SO c.c17597 PD       0:00      2 (Priority)
+p300
+aV           2831884       htc    EAGER c.c16059 PD       0:00      1 (Priority)
+p301
+aV           2831887       htc    EAGER c.c16059 PD       0:00      1 (Priority)
+p302
+aV           2832606   compute Cu2O:Zn_ c.c16666 PD       0:00      2 (Priority)
+p303
+aV           2832333   compute B-NiS/11  c.sacny PD       0:00      2 (Priority)
+p304
+aV           2831902   compute T1Mzh1c0 c.c16637 PD       0:00      4 (Priority)
+p305
+aV           2822962   compute desRefin c.c12113 PD       0:00      3 (Priority)
+p306
+aV           2822963   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p307
+aV           2822964   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p308
+aV           2822965   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p309
+aV           2822966   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p310
+aV           2822967   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p311
+aV           2822968   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p312
+aV           2822969   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p313
+aV           2822970   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p314
+aV           2822971   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p315
+aV           2822972   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p316
+aV           2822973   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p317
+aV           2822974   compute desRefin c.c12113 PD       0:00      3 (Dependency)
+p318
+aV           2831646   compute s661d_SP  c.sacje PD       0:00      3 (Priority)
+p319
+aV           2831898   compute Au_IM1_f  c.sacje PD       0:00      3 (Priority)
+p320
+aV           2831901   compute Au_IM2aB  c.sacje PD       0:00      3 (Priority)
+p321
+aV           2831904   compute  Au_IM2B  c.sacje PD       0:00      3 (Priority)
+p322
+aV           2831955   compute    H2_fq  c.sacje PD       0:00      3 (Priority)
+p323
+aV           2832882   compute solitary  c.scezx PD       0:00      7 (Priority)
+p324
+aV           2832386   compute Ru_TS1b_  c.sacje PD       0:00      3 (Priority)
+p325
+aV           2832391   compute  Ru_IM1c  c.sacje PD       0:00      3 (Priority)
+p326
+aV           2832396   compute  Pd_TS5c  c.sacje PD       0:00      3 (Priority)
+p327
+aV           2826337       htc 1b1a_21l c.sacar9 PD       0:00      1 (Priority)
+p328
+aV           2826338       htc 1c1a_21l c.sacar9 PD       0:00      1 (Priority)
+p329
+aV           2826341       htc 2b2a_21l c.sacar9 PD       0:00      1 (Priority)
+p330
+aV           2826342       htc 2c2a_21l c.sacar9 PD       0:00      1 (Priority)
+p331
+aV           2826343       htc 3b3a_21l c.sacar9 PD       0:00      1 (Priority)
+p332
+aV           2826344       htc 3c3a_21l c.sacar9 PD       0:00      1 (Priority)
+p333
+aV           2826346       htc 4b4a_21l c.sacar9 PD       0:00      1 (Priority)
+p334
+aV           2826347       htc 4c4a_21l c.sacar9 PD       0:00      1 (Priority)
+p335
+aV           2826348       htc 5b5a_21l c.sacar9 PD       0:00      1 (Priority)
+p336
+aV           2826349       htc 5c5a_21l c.sacar9 PD       0:00      1 (Priority)
+p337
+aV           2828339       htc Ge-phono c.c10203  R 2-12:50:03      1 ccs1017
+p338
+aV           2827875   compute MSH3_E52  c.mpmgm  R 2-15:04:57      3 ccs[0038,0040,0095]
+p339
+aV           2830888   compute    R507H  c.mpmgm  R 1-07:03:32      3 ccs[0097-0098,1020]
+p340
+aV           2831565   compute    D702E  c.mpmgm  R   17:24:49      3 ccs[0071-0072,0130]
+p341
+aV           2831563   compute    L794R  c.mpmgm  R   17:28:41      3 ccs[0034,0037,2006]
+p342
+aV           2831561   compute    R507H  c.mpmgm  R   17:33:26      3 ccs[0053-0054,0065]
+p343
+aV           2831560   compute  FAN1_WT  c.mpmgm  R   17:35:08      3 ccs[0031-0033]
+p344
+aV           2831691   compute tBuPip_m c.sphcs2  R   15:34:26      1 ccs0094
+p345
+aV           2828782   compute SORL1_li  c.mpmgm  R 2-09:20:47      2 ccs[0041,0045]
+p346
+aV           2832698 c_gpu_com gputrain c.c14356  R    4:07:48      1 ccs9201
+p347
+aV        2826203_11       htc  scw1283 c.c13628  R   18:31:25      1 ccs3001
+p348
+aV        2826203_12       htc  scw1283 c.c13628  R   18:31:25      1 ccs3001
+p349
+aV         2826203_8       htc  scw1283 c.c13628  R   18:32:26      1 ccs3001
+p350
+aV         2826203_9       htc  scw1283 c.c13628  R   18:32:26      1 ccs3001
+p351
+aV        2826203_10       htc  scw1283 c.c13628  R   18:32:26      1 ccs3001
+p352
+aV           2830481   compute cp2k-1-o x.s.r.01  R 1-11:03:35      6 ccs[0057-0058,0070,0077,0081-0082]
+p353
+aV           2831847       htc regrid_n b.osp001  R   14:34:43      1 ccs3001
+p354
+aV           2830326       htc Fe111_GU c.c18580  R 1-13:31:00      1 ccs3017
+p355
+aV           2830303       htc Fe111_GU c.c18580  R 1-13:48:37      1 ccs3003
+p356
+aV           2830337       htc Fe111_GU c.c18580  R 1-12:31:19      1 ccs1009
+p357
+aV           2830498       htc Fe111_GU c.c18580  R 1-12:00:21      1 ccs3022
+p358
+aV           2828623   compute j100nsde c.c12671  R 2-11:00:31      3 ccs[0001-0002,0124]
+p359
+aV           2828654   compute j100nsde c.c12671  R 2-09:11:31      6 ccs[0067-0068,0089-0090,0101-0102]
+p360
+aV           2827832       gpu   DPPC7P c.c18498  R    7:24:50      1 ccs2003
+p361
+aV           2828572       htc ClustalO b.bspa44  R 2-11:09:15      1 ccs3001
+p362
+aV           2832088       htc cont_MP2 c.sacal5  R    9:57:36      1 ccs1014
+p363
+aV           2832127       htc cont_MP2 c.sacal5  R    9:57:05      1 ccs1016
+p364
+aV           2832124       htc cont_MP2 c.sacal5  R    9:57:07      1 ccs3012
+p365
+aV           2828062       htc CO2aa-su c.c18848  R    6:46:26      1 ccs1023
+p366
+aV           2828060       htc H2nanoc- c.c18848  R    6:47:55      1 ccs3016
+p367
+aV           2829038       htc Co_CO_at c.c17617  R    3:37:53      2 ccs[1011,1019]
+p368
+aV           2828212       htc H20c-sur c.c18848  R    6:39:49      1 ccs2009
+p369
+aV           2830096       htc    Bagel c.c15219  R 1-02:11:12      1 ccs1018
+p370
+aV           2829021       htc Co_O2_br c.c17617  R    6:19:54      2 ccs[1013,3011]
+p371
+aV           2827376       htc     otis b.osu043  R 1-01:30:35      1 ccs1010
+p372
+aV           2828748       htc COnano-b c.c18848  R    6:17:41      1 ccs3021
+p373
+aV           2832156       htc MP2_s-C2 c.sacal5  R    6:15:53      1 ccs1024
+p374
+aV           2827374       htc     otis b.osu043  R 1-02:20:23      1 ccs3009
+p375
+aV           2829013       htc Co_O2_br c.c17617  R   22:02:00      2 ccs[1015,1021]
+p376
+aV           2829016       htc Co_O2_br c.c17617  R   19:27:30      2 ccs[3008,3025]
+p377
+aV           2828107       htc    EAGER c.c18844  R 1-03:27:49      4 ccs[1010,1026,2012,3009]
+p378
+aV           2828235       htc 2CO2_100 c.c14195  R      33:03      1 ccs3014
+p379
+aV           2830177       htc  fx_8_50 c.c18949  R    3:34:44      1 ccs3004
+p380
+aV           2830178       htc  fx_9_50 c.c18949  R    3:34:44      1 ccs2007
+p381
+aV           2830176       htc  fx_7_50 c.c18949  R    3:35:27      1 ccs2008
+p382
+aV           2830172       htc  fx_5_50 c.c18949  R    3:38:12      1 ccs3026
+p383
+aV           2830174       htc  fx_6_50 c.c18949  R    3:38:12      1 ccs3019
+p384
+aV           2830171       htc  fx_4_50 c.c18949  R    3:48:28      1 ccs3006
+p385
+aV           2827373       htc     otis b.osu043  R 1-10:35:05      1 ccs2013
+p386
+aV           2827961       htc   num.sh b.chu852  R      34:56      2 ccs[1012,2010]
+p387
+aV           2830192       htc fx_20_20 c.c18949  R    1:09:19      1 ccs1022
+p388
+aV           2828067       htc Gaussian c.c16756  R    5:44:02      1 ccs3015
+p389
+aV           2828065       htc Gaussian c.c16756  R    5:44:05      1 ccs3010
+p390
+aV           2830170       htc  fx_3_50 c.c18949  R    5:35:42      1 ccs1008
+p391
+aV           2829002       htc Co_O2__a c.c17617  R 1-17:15:14      2 ccs[2011,3018]
+p392
+aV           2827372       htc     otis b.osu043  R 1-14:24:34      1 ccs3013
+p393
+aV           2827371       htc     otis b.osu043  R 1-14:30:58      1 ccs3024
+p394
+aV           2827867       htc    AMBER c.c10267  R 1-19:41:33      4 ccs[1025,3002,3023-3024]
+p395
+aV           2828240       htc   CASTEP c.c16059  R 1-23:43:07      4 ccs[2012,3001,3007,3013]
+p396
+aV           2827370       htc     otis b.osu043  R 1-15:52:58      1 ccs3023
+p397
+aV           2831694       htc   CASTEP c.c18844  R   13:27:05      3 ccs[1012,2010,3005]
+p398
+aV           2829112       gpu   dlpoly c.c17399  R    4:47:19      1 ccs2001
+p399
+aV           2829099       gpu   dlpoly c.c17399  R    5:31:02      1 ccs2004
+p400
+aV           2832502       htc unjam_P4 c.sglab2  R    7:05:18      1 ccs3005
+p401
+aV           2832501       htc unjam_P3 c.sglab2  R    7:18:32      1 ccs2010
+p402
+aV           2832500       htc unjam_P2 c.sglab2  R    7:27:25      1 ccs3020
+p403
+aV           2829074       gpu   dlpoly c.c17399  R    7:15:05      1 ccs2005
+p404
+aV           2830419   highmem mascurca b.bssa13  R   19:09:03      1 ccs1001
+p405
+aV           2832484   compute ALM_0deg c.c13160  R    6:47:59      2 ccs[0051-0052]
+p406
+aV           2832485   compute ALM_5deg c.c13160  R    6:47:59      2 ccs[0060,0083]
+p407
+aV           2827943       htc   num.sh b.chu852  R   17:48:52      2 ccs[1025,3007]
+p408
+aV           2832632   compute ALM_10de c.c13160  R    5:42:43      2 ccs[0013,0021]
+p409
+aV           2827904       htc   num.sh b.chu852  R   19:27:23      3 ccs[1026,2012-2013]
+p410
+aV           2827921       htc   num.sh b.chu852  R   19:27:23      2 ccs[1026,3002]
+p411
+aV           2829837   compute     VASP b.nssc02  R       1:48      2 ccs[0061-0062]
+p412
+aV           2829838   compute     VASP b.nssc02  R       1:48      2 ccs[0066,0093]
+p413
+aV           2829836   compute     VASP b.nssc02  R       4:08      2 ccs[0036,0039]
+p414
+aV           2827892   highmem eta_r.00 c.sma9mg  R 1-07:25:18      4 ccs[1003-1004,1006-1007]
+p415
+aV           2829833   compute     VASP b.nssc02  R      14:27      2 ccs[0010,0014]
+p416
+aV           2829835   compute     VASP b.nssc02  R      14:27      2 ccs[0110,0113]
+p417
+aV           2829832   compute     VASP b.nssc02  R      41:55      2 ccs[0059,0063]
+p418
+aV           2830348   compute T00zh1n2 c.c16637  R    5:21:27     10 ccs[0025-0026,0028,0046,0069,0073,0078,0112,0115,0120]
+p419
+aV           2827848   compute    CFerr c.sacar6  R    2:08:40      2 ccs[0064,0075]
+p420
+aV           2827844   compute   NCFerr c.sacar6  R    2:22:58      2 ccs[0111,0128]
+p421
+aV           2827843   compute side_int c.sacar6  R    2:24:54      2 ccs[0049-0050]
+p422
+aV           2828272   compute Cu-100-H c.sacmh9  R    2:08:40      4 ccs[0027,0074,0076,0126]
+p423
+aV           2827840   compute    CFerr c.sacar6  R    4:13:10      2 ccs[0122,0125]
+p424
+aV           2827842   compute side_H_I c.sacar6  R    4:13:10      2 ccs[0008,0085]
+p425
+aV           2827700   compute Au_111_E  c.sacje  R    1:44:40      3 ccs[0091-0092,0106]
+p426
+aV       2831586_764       htc news_phi c.sbsdm5  R       0:26      1 ccs3013
+p427
+aV       2831586_763       htc news_phi c.sbsdm5  R       3:34      1 ccs3020
+p428
+aV       2831586_762       htc news_phi c.sbsdm5  R       6:11      1 ccs3024
+p429
+aV       2831586_761       htc news_phi c.sbsdm5  R       8:16      1 ccs3009
+p430
+aV       2831586_759       htc news_phi c.sbsdm5  R      12:25      1 ccs3013
+p431
+aV       2831586_760       htc news_phi c.sbsdm5  R      12:25      1 ccs3020
+p432
+aV       2831586_758       htc news_phi c.sbsdm5  R      13:28      1 ccs3020
+p433
+aV       2831586_757       htc news_phi c.sbsdm5  R      16:35      1 ccs2010
+p434
+aV       2831586_755       htc news_phi c.sbsdm5  R      17:07      1 ccs1012
+p435
+aV       2831586_756       htc news_phi c.sbsdm5  R      17:07      1 ccs3023
+p436
+aV       2831586_754       htc news_phi c.sbsdm5  R      22:52      1 ccs3020
+p437
+aV       2831586_751       htc news_phi c.sbsdm5  R      27:03      1 ccs3020
+p438
+aV       2831586_752       htc news_phi c.sbsdm5  R      27:03      1 ccs3020
+p439
+aV       2831586_753       htc news_phi c.sbsdm5  R      27:03      1 ccs3024
+p440
+aV       2831586_750       htc news_phi c.sbsdm5  R      29:08      1 ccs2012
+p441
+aV       2831586_749       htc news_phi c.sbsdm5  R      30:43      1 ccs3020
+p442
+aV       2831586_748       htc news_phi c.sbsdm5  R      31:14      1 ccs3023
+p443
+aV       2831586_747       htc news_phi c.sbsdm5  R      32:18      1 ccs1012
+p444
+aV       2831586_746       htc news_phi c.sbsdm5  R      34:24      1 ccs2010
+p445
+aV           2827839   compute    CFerr c.sacar6  R    5:21:00      2 ccs[0096,0134]
+p446
+aV       2831586_745       htc news_phi c.sbsdm5  R      43:12      1 ccs3009
+p447
+aV       2831586_744       htc news_phi c.sbsdm5  R      44:46      1 ccs3009
+p448
+aV       2831586_743       htc news_phi c.sbsdm5  R      45:49      1 ccs3020
+p449
+aV       2831586_742       htc news_phi c.sbsdm5  R      47:54      1 ccs3024
+p450
+aV       2831586_739       htc news_phi c.sbsdm5  R      53:06      1 ccs3007
+p451
+aV       2831586_740       htc news_phi c.sbsdm5  R      53:06      1 ccs3007
+p452
+aV       2831586_741       htc news_phi c.sbsdm5  R      53:06      1 ccs3007
+p453
+aV       2831586_738       htc news_phi c.sbsdm5  R      55:43      1 ccs3005
+p454
+aV       2831586_725       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p455
+aV       2831586_726       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p456
+aV       2831586_727       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p457
+aV       2831586_728       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p458
+aV       2831586_729       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p459
+aV       2831586_730       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3007
+p460
+aV       2831586_731       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3009
+p461
+aV       2831586_732       htc news_phi c.sbsdm5  R    1:00:54      1 ccs3009
+p462
+aV       2831586_733       htc news_phi c.sbsdm5  R    1:00:54      1 ccs1026
+p463
+aV       2831586_734       htc news_phi c.sbsdm5  R    1:00:54      1 ccs1026
+p464
+aV       2831586_735       htc news_phi c.sbsdm5  R    1:00:54      1 ccs1026
+p465
+aV       2831586_736       htc news_phi c.sbsdm5  R    1:00:54      1 ccs1026
+p466
+aV       2831586_737       htc news_phi c.sbsdm5  R    1:00:54      1 ccs1026
+p467
+aV       2831586_724       htc news_phi c.sbsdm5  R    1:01:57      1 ccs3020
+p468
+aV       2831586_722       htc news_phi c.sbsdm5  R    1:02:59      1 ccs3020
+p469
+aV       2831586_721       htc news_phi c.sbsdm5  R    1:03:31      1 ccs3020
+p470
+aV       2831586_719       htc news_phi c.sbsdm5  R    1:05:05      1 ccs3005
+p471
+aV       2831586_720       htc news_phi c.sbsdm5  R    1:05:05      1 ccs3005
+p472
+aV       2831586_718       htc news_phi c.sbsdm5  R    1:06:08      1 ccs3005
+p473
+aV       2831586_717       htc news_phi c.sbsdm5  R    1:07:11      1 ccs3020
+p474
+aV       2831586_716       htc news_phi c.sbsdm5  R    1:07:43      1 ccs3023
+p475
+aV       2831586_715       htc news_phi c.sbsdm5  R    1:10:53      1 ccs3020
+p476
+aV       2831586_711       htc news_phi c.sbsdm5  R    1:13:00      1 ccs3020
+p477
+aV       2831586_712       htc news_phi c.sbsdm5  R    1:13:00      1 ccs3020
+p478
+aV       2831586_713       htc news_phi c.sbsdm5  R    1:13:00      1 ccs3020
+p479
+aV       2831586_710       htc news_phi c.sbsdm5  R    1:13:32      1 ccs3020
+p480
+aV       2831586_708       htc news_phi c.sbsdm5  R    1:14:04      1 ccs3013
+p481
+aV       2831586_701       htc news_phi c.sbsdm5  R    1:25:32      1 ccs3020
+p482
+aV       2831586_702       htc news_phi c.sbsdm5  R    1:25:32      1 ccs3020
+p483
+aV       2831586_703       htc news_phi c.sbsdm5  R    1:25:32      1 ccs3020
+p484
+aV           2828876   compute  T1Mzd1f c.c16637  R   14:53:44      6 ccs[0007,0044,0047-0048,0084,0109]
+p485
+aV           2828012   compute PdO_011_ c.c15292  R   13:06:50      2 ccs[0016,0019]
+p486
+aV           2831642   compute vasp_1ho c.sacsn5  R   13:03:46      3 ccs[0042-0043,0132]
+p487
+aV           2828768   compute graph_st c.c15750  R 2-07:46:17      2 ccs[0127,0129]
+p488
+aV           2827835   compute PdO_011_ c.c15292  R   16:05:38      2 ccs[0005,0022]
+p489
+aV           2827651   compute Pt011_SO c.c17597  R   21:07:04      2 ccs[0087-0088]
+p490
+aV           2827647   compute Pt011_SO c.c17597  R   21:20:44      2 ccs[0023-0024]
+p491
+aV           2827884   compute   10Pd_C c.c18111  R   17:45:44      2 ccs[0029-0030]
+p492
+aV           2828873   compute T01zd2i2 c.c16637  R   18:44:21      6 ccs[0079-0080,0104-0105,0107,0133]
+p493
+aV           2830723   compute Pd111_do c.c16713  R 1-05:52:51      2 ccs[0055-0056]
+p494
+aV           2828175   compute fine_sem c.c12206  R 1-13:08:59      5 ccs[0035,0114,0117-0118,0121]
+p495
+aV           2828421   compute CC_n10cc c.c13318  R 2-04:03:23      2 ccs[0011-0012]
+p496
+aV           2828624   compute CC_n10cc c.c13318  R 2-03:33:01      2 ccs[0017-0018]
+p497
+aV           2827394   compute solitary  c.scezx  R 1-20:29:13      7 ccs[0020,0086,0099-0100,0103,0108,0116]
+p498
+aV           2827889   compute VC001_ca  c.sacmq  R 1-23:57:16      4 ccs[0003-0004,0006,0009]
+p499
+aV           2827390   compute    9Pd_C c.c18111  R 2-22:13:04      2 ccs[0015,0123]
+p500
+a.
