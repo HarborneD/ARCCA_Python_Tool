@@ -47,6 +47,8 @@ class ArccaTool(object):
         self.client = paramiko.SSHClient()
         self.client_open = False
 
+        self.sftp = None
+
         self.host_key = host_key
         self.decoded_key = None
 
@@ -116,13 +118,16 @@ class ArccaTool(object):
         self.client.connect(self.host, username=self.credentials["username"], password=self.credentials["pw"])
         if(tpn_override):
             self.TpnOverride()
+        self.client_open = True
 
     def CloseConnection(self):
-        print("___")
-        print("closing connection")
-        print("___")
-        print("")
-        self.client.close()
+        if(self.client.get_transport().is_active()):
+            print("___")
+            print("closing connection")
+            print("___")
+            print("")
+            self.client.close()
+            self.client_open = False
 
     ###COMMANDS
     def SendCommand(self,command):
@@ -215,6 +220,24 @@ class ArccaTool(object):
             for job in jobs:
                 print(job)
     
+
+    def PollJobOutput(self,path_to_output_file):
+        #TODO: Implement Function
+        print("Press Enter to Stop Polling Jobs")
+        def input_thread(L):
+            raw_input()
+            L.append(None)
+        L = []
+        thread.start_new_thread(input_thread, (L,))
+        while 1:
+            time.sleep(2)
+            if L: break
+            jobs = self.CheckOwnJobs()
+            for job in jobs:
+                print(job)
+    
+
+    
     def CheckStartTime(self,job_id):
         queue_command = self.COMMANDS["get_job_queue"] +" -j "+job_id + "--start"
 
@@ -243,14 +266,14 @@ class ArccaTool(object):
         stdin, stdout, stderr = self.SendCommand(command) 
         
 
-    def StartBatchJob(self,account,run_from_path,script_name):
+    def StartBatchJob(self,account,run_from_path,script_name, args=""):
         #stdin, stdout, stderr, job_id = arcca_tool.StartBatchJob("fyp_scw1427","/home/c.c0919382/test_scripts","test_tensorflow.sh")
         #TODO: remove these
         #fyp_scw1427
         #dais_scw1077
         
         cd_command = self.COMMANDS["change_directory"]+" "+run_from_path+" ;"
-        post_job_command = self.COMMANDS["batch_job"]+" --account="+account+" "+script_name
+        post_job_command = self.COMMANDS["batch_job"]+" --account="+account+" "+script_name+" "+args
         print("post_job_command")
         stdin, stdout, stderr = self.SendCommand(cd_command +" "+post_job_command) 
         was_error = False
@@ -259,8 +282,8 @@ class ArccaTool(object):
             was_error = True
             print(line)
         
-        if(was_error):
-            raise RuntimeError('Job submission failed.')
+        # if(was_error):
+        #     raise RuntimeError('Job submission failed.')
         
         job_id = None
         for line in stdout:
@@ -272,12 +295,35 @@ class ArccaTool(object):
         
         self.user_jobs_list.append(job_id)
         
-        return stdin, stdout, stderr, job_id
+        return stdin, stdout, stderr, job_id, was_error
 
+    ###SFTP FUNCTIONS
+    def CreateSFTPConnection(self):
+        if(self.sftp is None):
+            if(not self.client_open):
+                self.Connect()
+            
+            self.sftp = self.client.open_sftp()
+    
+
+    def CloseSFTPConnection(self):
+        if(not self.sftp is None):
+            self.sftp.close()
+            self.sftp = None
+
+
+    def SendFileToServer(self,source_path,destination_path):
+        self.CreateSFTPConnection()
+        self.sftp.put(source_path, destination_path)
+
+
+
+
+    #### destructor
     def __del__(self):
-        if(not self.client is None):
-            if(self.client.get_transport().is_active()):
-                self.CloseConnection()
+        self.CloseSFTPConnection()
+
+        self.CloseConnection()
 
 
 if __name__ == "__main__":    

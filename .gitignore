@@ -105,3 +105,6 @@ venv.bak/
 
 #credentials file
 credentials.json
+
+#project specific test files
+test_genetic_remote_functions.py
