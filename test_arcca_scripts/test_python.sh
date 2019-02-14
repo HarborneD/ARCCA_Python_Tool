@@ -9,7 +9,7 @@
 #SBATCH --array=0-4
 #SBATCH -o output-%A_%a-%J.o
 #SBATCH -n 1
-#SBATCH --ntasks=80
-#SBATCH --ntasks-per-node=40
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
 
 python python_arcca_test.py $SLURM_JOB_ID $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID
