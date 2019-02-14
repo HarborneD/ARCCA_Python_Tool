@@ -18,5 +18,5 @@ if __name__ == '__main__':
     # print(SLURM_JOB_ID)
     # print(SLURM_ARRAY_JOB_ID)
     # print(SLURM_ARRAY_TASK_ID)
-    print("run tesnroflow test case")
+    print("run tensorflow test case. Job: "+ SLURM_JOB_ID)
     # tf.test.main()

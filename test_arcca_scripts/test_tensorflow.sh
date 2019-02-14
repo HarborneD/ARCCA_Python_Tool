@@ -19,7 +19,4 @@
 module load CUDA/9.1
 module load tensorflow
 
-
-
-
 python python_arcca_tensorflow_test.py $SLURM_JOB_ID $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID
