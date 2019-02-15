@@ -175,21 +175,35 @@ class ArccaTool(object):
         return self.CheckJobs(user_ids=[self.credentials["username"]])
 
 
-    def ProcessJobLine(self,job_line):
+    def ProcessJobLine(self,job_line,includes_start=False):
         result = re.findall(r'([\w\[\]\-\:\.\(\)]+)', job_line)
         
         job = None
-        if(len(result) == 8):
-            job = {
-                "job_id":result[0]
-                ,"partition":result[1]
-                ,"name":result[2]
-                ,"user":result[3]
-                ,"st":result[4]
-                ,"time":result[5]
-                ,"nodes":result[6]
-                ,"nodelist":result[7]
-                }
+        if(includes_start):
+            if(len(result) == 9):
+                job = {
+                    "job_id":result[0]
+                    ,"partition":result[1]
+                    ,"name":result[2]
+                    ,"user":result[3]
+                    ,"st":result[4]
+                    ,"start_time":result[5]
+                    ,"nodes":result[6]
+                    ,"scheduled_nodes":result[7]
+                    ,"nodelist":result[8]
+                    }
+        else:
+            if(len(result) == 8):
+                job = {
+                    "job_id":result[0]
+                    ,"partition":result[1]
+                    ,"name":result[2]
+                    ,"user":result[3]
+                    ,"st":result[4]
+                    ,"time":result[5]
+                    ,"nodes":result[6]
+                    ,"nodelist":result[7]
+                    }
         return job
 
 
@@ -242,11 +256,11 @@ class ArccaTool(object):
         queue_command = self.COMMANDS["get_job_queue"] +" -j "+job_id + "--start"
 
         stdin, stdout, stderr = self.SendCommand(queue_command)
-        job_queue = []
+        start_job_queue = []
         for line in stdout:
-            job_queue.append(line.strip('\n'))
+            start_job_queue.append(line.strip('\n'))
 
-        return job_queue
+        return start_job_queue
 
     ###CANCEL JOB FUNCTIONS
     def CancelJob(self,job_id):
@@ -276,23 +290,25 @@ class ArccaTool(object):
         post_job_command = self.COMMANDS["batch_job"]+" --account="+account+" "+script_name+" "+args
         print("post_job_command")
         stdin, stdout, stderr = self.SendCommand(cd_command +" "+post_job_command) 
+        
         was_error = False
-        print("post Error:")
         for line in stderr:
             was_error = True
             print(line)
+        if(was_error):
+            print("^^^ post Error")
         
         # if(was_error):
         #     raise RuntimeError('Job submission failed.')
         
         job_id = None
         for line in stdout:
-            print("line")
             if(str(line)[:20] == "Submitted batch job "):
                 r'\d+'
                 job_id = line[20:]
                 break
-        
+        job_id = job_id.strip('\n')
+            
         self.user_jobs_list.append(job_id)
         
         return stdin, stdout, stderr, job_id, was_error
@@ -315,6 +331,11 @@ class ArccaTool(object):
     def SendFileToServer(self,source_path,destination_path):
         self.CreateSFTPConnection()
         self.sftp.put(source_path, destination_path)
+    
+
+    def FetchFileFromServer(self,source_path,destination_path):
+        self.CreateSFTPConnection()
+        self.sftp.get(source_path, destination_path)
 
 
 
