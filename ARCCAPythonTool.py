@@ -9,6 +9,7 @@ import re
 import thread
 import time
 
+import stat
 
 
 ### Connection
@@ -57,6 +58,7 @@ class ArccaTool(object):
             ,"batch_job":"sbatch"
             ,"cancel_job":"scancel"
             ,"change_directory":"cd"
+            ,"check_status":"sacct"
         }
 
         self.JOB_STATUS_CODES = None
@@ -131,7 +133,15 @@ class ArccaTool(object):
 
     ###COMMANDS
     def SendCommand(self,command):
-        stdin, stdout, stderr = self.client.exec_command(command)
+        try:
+            stdin, stdout, stderr = self.client.exec_command(command)
+        except:
+            time.sleep(5)
+            try:
+                self.Connect()
+            except:
+                pass
+            stdin, stdout, stderr = self.client.exec_command(command)
         return stdin, stdout, stderr
 
 
@@ -175,6 +185,48 @@ class ArccaTool(object):
         return self.CheckJobs(user_ids=[self.credentials["username"]])
 
 
+    def CheckJobsStatuses(self, start_time="2019-01-01"):
+        status_command = self.COMMANDS["check_status"]+ " -u " + self.credentials["username"] +" --starttime="+start_time +" -X"
+        
+        _, stdout, _ = self.SendCommand(status_command)
+        status_lines = []
+        try:
+            for line in stdout:
+                status_lines.append(line.strip('\n'))
+        except:
+            _, stdout, _ = self.SendCommand(status_command)
+            status_lines = []
+            for line in stdout:
+                status_lines.append(line.strip('\n'))
+
+        statuses = {}
+        for status_line in status_lines:
+            status = self.ProcessStatusLine(status_line)
+            if(not status is None):
+                statuses[status["job_id"]] = status
+            
+        return statuses
+    
+
+    def ProcessStatusLine(self,status_line):
+        result = re.findall(r'([\w\[\]\-\:\.\(\)]+)', status_line)
+        
+        status = None
+        
+        if(len(result) == 7):
+            status = {
+                "job_id":result[0]
+                ,"job_name":result[1]
+                ,"partition":result[2]
+                ,"account":result[3]
+                ,"cpu_alloc":result[4]
+                ,"state":result[5]
+                ,"exit_code":result[6]
+                
+                }
+
+        return status
+        
     def ProcessJobLine(self,job_line,includes_start=False):
         result = re.findall(r'([\w\[\]\-\:\.\(\)]+)', job_line)
         
@@ -338,7 +390,87 @@ class ArccaTool(object):
         self.sftp.get(source_path, destination_path)
 
 
+    def ListRemoteDir(self, path):
+        self.CreateSFTPConnection()
+        return self.sftp.listdir(path)
 
+    def CheckPathExists(self, path):
+        self.CreateSFTPConnection()
+        try:
+            self.sftp.stat(path)
+        except IOError, e:
+            if e[0] == 2:
+                return False
+            raise
+        else:
+            return True
+    
+
+    def CreateFolder(self,path):
+        self.CreateSFTPConnection()
+        self.sftp.mkdir(path)
+
+
+    def MoveRemoteFile(self, remote_source, remote_destination):
+        self.CreateSFTPConnection()
+        self.sftp.rename(remote_source,remote_destination)
+
+    
+    def MoveRemoteDirectory(self, remote_source, remote_destination):
+        self.CreateSFTPConnection()
+        if(not self.CheckPathExists(remote_destination)):
+            self.CreateFolder(remote_destination)
+        
+        contents = self.ListRemoteDir(remote_source)
+
+        for item in contents:
+            source_item_path = os.path.join(remote_source,item)
+            destination_item_path = os.path.join(remote_destination,item)
+
+            if(self.CheckRemotePathIsDirectory(source_item_path)):
+                self.MoveRemoteDirectory(source_item_path,destination_item_path)
+            else:
+                self.MoveRemoteFile(source_item_path,destination_item_path)
+        
+        self.RemoveRemoteDirectory(remote_source)
+
+    def CheckRemotePathIsDirectory(self,path):
+        self.CreateSFTPConnection()
+        try:
+            fileattr = self.sftp.lstat(path)
+            if stat.S_ISDIR(fileattr.st_mode):
+                return True
+            if stat.S_ISREG(fileattr.st_mode):
+                return False 
+        except:
+            return False
+
+
+    def RemoveRemoteDirectory(self,path):
+        self.CreateSFTPConnection()
+        items_in_dir = self.ListRemoteDir(path)
+
+        for item in items_in_dir:
+            item_path = os.path.join(path, item)
+            if(self.CheckRemotePathIsDirectory(item_path)):
+                self.RemoveRemoteDirectory(item_path)
+            else:
+                self.DeleteRemoteFile(item_path)    
+
+        self.sftp.rmdir(path)    
+    
+
+    def DeleteRemoteFile(self,path):
+        self.CreateSFTPConnection()
+        self.sftp.remove(path)
+
+
+    def RemoveRemoteItem(self,path):
+        self.CreateSFTPConnection()
+        if(self.CheckRemotePathIsDirectory(path)):
+            self.RemoveRemoteDirectory(path)
+        else:
+            self.DeleteRemoteFile(path)
 
     #### destructor
     def __del__(self):
@@ -383,9 +515,9 @@ if __name__ == "__main__":
     if(test_array_job):
         account = "scw1077"
         test_batch_script = "test_array_job.sh"
-        
+        run_from_path = ""
         print("Submit Batch Job:")
-        stdin, stdout, stderr, job_id  = arcca_tool.StartBatchJob(account,test_batch_script)
+        stdin, stdout, stderr, job_id, was_error = arcca_tool.StartBatchJob(account,run_from_path,test_batch_script)
         print("")
         for line in stdout:
             print('... ' + line.strip('\n'))
