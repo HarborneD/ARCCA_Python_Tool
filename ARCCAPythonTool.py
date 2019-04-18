@@ -41,11 +41,11 @@ except:
 #[ ] get quota of home
     #myquota
 
-#[ ] send files to remote location
+#[X] send files to remote location
 
-#[ ] directory of remote location
+#[X] directory of remote location
 
-#[ ] fetch files from remote location
+#[X] fetch files from remote location
 
 
 class ArccaTool(object):
