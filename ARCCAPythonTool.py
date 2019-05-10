@@ -32,7 +32,7 @@ except:
 #[x] check job status 
 #[x] poll job status(blocking)
 #[ ] restart failed jobs
-#[ ] check expected start time for jobs
+#[X] check expected start time for jobs
 #[x] cancel job
 
 
@@ -82,8 +82,7 @@ class ArccaTool(object):
             print("Connect using system SSH first to verify host key manually. System keys are used by this tool.")
             print("___")
             self.client.load_system_host_keys()
-            # self.decoded_key = paramiko.RSAKey(data=base64.b64decode(b'SHA:AAA='))
-            # self.client.get_host_keys().add(self.host, 'ssh-rsa', self.decoded_key)
+            
         else:
             print("___")
             print("Accepted system host keys will be used to check server identity.")
@@ -91,8 +90,7 @@ class ArccaTool(object):
             print("___")
             print("")
             self.client.load_system_host_keys()
-            # print("Warning: no host key provided - can't confirm identity of server")
-            # self.client.set_missing_host_key_policy(paramiko.WarningPolicy())
+            
 
 
     ###CREDENTIAL FUNCTIONS
@@ -142,6 +140,7 @@ class ArccaTool(object):
 
     ###COMMANDS
     def SendCommand(self,command):
+        #Send raw command via SSH to server
         try:
             stdin, stdout, stderr = self.client.exec_command(command)
         except:
@@ -354,10 +353,7 @@ class ArccaTool(object):
 
     def StartBatchJob(self,account,run_from_path,script_name, args=""):
         #stdin, stdout, stderr, job_id = arcca_tool.StartBatchJob("fyp_scw1427","/home/c.c0919382/test_scripts","test_tensorflow.sh")
-        #TODO: remove these
-        #fyp_scw1427
-        #dais_scw1077
-        
+                
         cd_command = self.COMMANDS["change_directory"]+" "+run_from_path+" ;"
         post_job_command = self.COMMANDS["batch_job"]+" --account="+account+" "+script_name+" "+args
         print("post_job_command")
@@ -384,6 +380,8 @@ class ArccaTool(object):
         self.user_jobs_list.append(job_id)
         
         return stdin, stdout, stderr, job_id, was_error
+
+
 
     ###SFTP FUNCTIONS
     def CreateSFTPConnection(self):
@@ -487,14 +485,20 @@ class ArccaTool(object):
                 self.DeleteRemoteFile(item_path)    
         
         self.CreateSFTPConnection()
-        self.sftp.rmdir(path) 
+        try:
+            self.sftp.rmdir(path) 
+        except:
+            pass
         #self.CloseSFTPConnection()
            
     
 
     def DeleteRemoteFile(self,path):
         self.CreateSFTPConnection()
-        self.sftp.remove(path)
+        try:
+            self.sftp.remove(path)
+        except:
+            pass
         #self.CloseSFTPConnection()
         
 
@@ -563,4 +567,4 @@ if __name__ == "__main__":
         
         for job_id in jobs_statuses:
             if(jobs_statuses[job_id]["state"] == "PENDING" or jobs_statuses[job_id]["state"] == "RUNNING"):
-               print(jobs_statuses[job_id]["state"])
+               print(job_id, jobs_statuses[job_id]["state"])
